@@ -2,23 +2,38 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qimu.jujiao.mapper.BlogMapper">
+<mapper namespace="com.hjj.homieMatching.mapper.BlogMapper">
 
-    <resultMap id="BaseResultMap" type="com.qimu.jujiao.model.entity.Blog">
+    <resultMap id="BaseResultMap" type="com.hjj.homieMatching.model.domain.Blog">
             <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="userId" column="userId" jdbcType="BIGINT"/>
             <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="coverImage" column="coverImage" jdbcType="VARCHAR"/>
             <result property="images" column="images" jdbcType="VARCHAR"/>
             <result property="content" column="content" jdbcType="VARCHAR"/>
-            <result property="liked" column="liked" jdbcType="INTEGER"/>
-            <result property="comments" column="comments" jdbcType="INTEGER"/>
+            <result property="userId" column="userId" jdbcType="BIGINT"/>
+            <result property="tags" column="tags" jdbcType="VARCHAR"/>
+            <result property="viewNum" column="viewNum" jdbcType="BIGINT"/>
+            <result property="likeNum" column="likeNum" jdbcType="BIGINT"/>
+            <result property="starNum" column="starNum" jdbcType="BIGINT"/>
+            <result property="commentNum" column="commentNum" jdbcType="BIGINT"/>
             <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,userId,title,
-        images,content,liked,
-        comments,createTime,updateTime
+        id,title,coverImage,
+        images,content,userId,tags,
+        viewNum,likeNum,starNum,commentNum,
+        createTime,updateTime,isDelete
     </sql>
+
+    <select id="selectBlogByPage" resultType="com.hjj.homieMatching.model.domain.Blog">
+        select * from blog
+        where isDelete = 0
+        <if test="title != null and title != ''">
+            and title like CONCAT('%', #{title}, '%')
+        </if>
+        limit #{start}, #{end}
+    </select>
 </mapper>

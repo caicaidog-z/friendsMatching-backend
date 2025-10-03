@@ -1,123 +1,257 @@
-# 聚交园
+# 中工交友平台
 
-## 大家找到志同道合的朋友的移动端网站（APP风格） 后端
+> 作者：菜菜狗
+>
+> [Github 主页](https://github.com/caicaidog-z)
 
-[TOC]
 
-**本站地址：[聚交园](https://qimuu.icu/)**
 
-**前端地址： https://github.com/qimu666/jujiao-garden-frontend**
 
-**后端地址： https://github.com/qimu666/jujiao-yuan-backend**
 
-🙏🏻 **大家喜欢这个项目的话，感谢动手点点 star**
+## 项目介绍
 
-## 界面展示
+中工交友平台是一个移动端网页的在线云交友平台。实现了按标签匹配、查找用户，基于 Redis GEO 实现搜索附近用户，同时个人还可以建队、组队以打造个人学习队伍。除了添加好友、搜索好友外，还基于 Websocket 实现好友间私聊，方便用户寻找志同道合的学习搭子。
 
-### 用户登录/注册
+### 线上地址
 
-<img src="https://img.qimuu.icu/typory/1682669065657.png" alt="1682669065657" style="zoom:50%;" />
+[中工交友平台](http://friend.caicaidog.xyz)
 
-### 好友列表/好友申请
 
-<img src="https://img.qimuu.icu/typory/1682669704355.png" alt="1682669704355" style="zoom: 50%;" />
-
-### 在线聊天
-
-![1682670682772](https://img.qimuu.icu/typory/1682670682772.png)
-
-### 用户推荐页
-
-<img src="https://img.qimuu.icu/typory/%E7%94%A8%E6%88%B7%E6%8E%A8%E8%8D%90.png" alt="用户推荐" style="zoom:50%;" />
-
-### 根据标签搜索用户
-
-<img src="https://img.qimuu.icu/typory/%E6%A0%87%E7%AD%BE%E6%90%9C%E7%B4%A2.png" alt="标签搜索" style="zoom:50%;" />
-
-### 队伍页
-
-<img src="https://img.qimuu.icu/typory/%E9%98%9F%E4%BC%8D%E9%A1%B5.png" alt="队伍页" style="zoom:50%;" />
-
-### 个人中心页
-
-<img src="https://img.qimuu.icu/typory/%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83%E9%A1%B5.png" alt="个人中心页" style="zoom: 50%;" />
-
-**详细界面见：** [聚交园](https://qimuu.icu/) 或doc目录
-
-## 项目描述
-
-- 一个帮助大家找到志同道合的伙伴的移动端网站，主要有用户登录注册、更新个人信息、按标签搜索用户、组队、好友聊天、大厅聊天、队伍聊天等功能。
 
 ## 技术选型
 
 ### 前端
 
-1. Vue 3
+| 技术       | 用途                       | 版本   |
+| ---------- | -------------------------- | ------ |
+| Vue        | 前端经典框架，方便开发页面 | 3.3.11 |
+| Vue-Router | 细致的导航控制             | 4      |
+| Axios      | 发送请求至后端             | 1.6.2  |
+| Vant       | 移动端样式组件库           | 4.8.0  |
+| Vite       | 前端构建工具               | 5.0.8  |
 
-2. Vant UI 组件库（移动端）
 
-3. Vite 脚手架
-
-4. TypeScript
-
-5. Axios 请求库
 
 ### 后端
 
-1. Java SpringBoot 2.7.x 框架
-2. MySQL 数据库
-3. MyBatis-Plus
-4. MyBatis X 自动生成
-5. Redis 缓存（Spring Data Redis 等多种实现方式）
-6. Redisson 分布式锁
-7. Swagger + Knife4j 接口文档
-8. Gson：JSON 序列化库
+| 技术                 | 用途                                         | 版本    |
+| -------------------- | -------------------------------------------- | ------- |
+| Spring Boot          | 快构建 Spring 应用                           | 2.7.6   |
+| JDK                  | Java 应用开发工具                            | 1.8     |
+| MyBatis              | 操作数据库的框架                             | 3.5.2   |
+| MyBatis-Plus         | MyBatis的增强框架，无需编写 SQL 语句         | 3.5.2   |
+| MySQL                | 一个关系型数据库产品，用于存储数据           | 8.0..33 |
+| Redis                | 一个非关系型数据库产品，用于存储数据         | 5.      |
+| WebSocket            | 使得客户端和服务器之间的数据交换变得更加简单 | 2.4.1   |
+| Lombok               | 实体类方法的快速生成工具                     |         |
+| knife4j              | 在线接口文档生成的库                         | 2.0.9   |
+| EasyExcel            | 快速、低占用地操作 Excel                     | 3.3.2   |
+| hutool               | 强而全的工具库                               | 5.7.17  |
+| Guava-Retrying       | 提供重试机制的库                             | 1.0.6   |
+| Apache-commons-lang3 | 工具库                                       | 3.12.0  |
 
-### 前后端交互
 
-1. WebSocket
+
+
+
+> 觉得项目还不错的同学可否给我项目点个 Star 呢？如果可以，小弟不胜感激，谢谢！
+
+## 功能展示
+
+登录
+
+<img src="C:\Users\23776\AppData\Roaming\Typora\typora-user-images\image-20251003175053926.png" alt="image-20251003175053926" style="zoom:33%;" />
+
+注册
+
+<img src="https://hejiajun-img-bucket.oss-cn-wuhan-lr.aliyuncs.com/img/20240609142952.png" alt="image-20240609142952622" style="zoom: 67%;" />
+
+<img src="https://hejiajun-img-bucket.oss-cn-wuhan-lr.aliyuncs.com/img/20240609143117.png" alt="image-20240609143117032" style="zoom: 67%;" />
+
+首页
+
+<img src="C:\Users\23776\AppData\Roaming\Typora\typora-user-images\image-20251003175152314.png" alt="image-20251003175152314" style="zoom:33%;" />
+
+按标签匹配相似用户
+
+<img src="C:\Users\23776\AppData\Roaming\Typora\typora-user-images\image-20251003175831139.png" alt="image-20251003175831139" style="zoom:33%;" />
+
+按标签搜索用户
+
+<img src="https://hejiajun-img-bucket.oss-cn-wuhan-lr.aliyuncs.com/img/20240609145012.png" alt="image-20240609145012357" style="zoom:67%;" />
+
+<img src="https://hejiajun-img-bucket.oss-cn-wuhan-lr.aliyuncs.com/img/20240609145002.png" alt="image-20240609145002577" style="zoom:67%;" />
+
+按距离搜索用户
+
+<img src="https://hejiajun-img-bucket.oss-cn-wuhan-lr.aliyuncs.com/img/20240609145122.png" alt="image-20240609145122634" style="zoom:67%;" />
+
+好友页面
+
+<img src="https://hejiajun-img-bucket.oss-cn-wuhan-lr.aliyuncs.com/img/20240609145434.png" alt="image-20240609145434695" style="zoom:67%;" />
+
+搜索好友
+
+<img src="https://hejiajun-img-bucket.oss-cn-wuhan-lr.aliyuncs.com/img/20240609171231.png" alt="image-20240609171231079" style="zoom:67%;" />
+
+好友私聊
+
+<img src="https://hejiajun-img-bucket.oss-cn-wuhan-lr.aliyuncs.com/img/20240609145534.png" alt="image-20240609145534153" style="zoom:67%;" />
+
+ai对话
+
+<img src="C:\Users\23776\AppData\Roaming\Typora\typora-user-images\image-20251003174245967.png" alt="image-20251003174245967" style="zoom: 33%;" />
+
+建队
+
+<img src="https://hejiajun-img-bucket.oss-cn-wuhan-lr.aliyuncs.com/img/20240609145549.png" alt="image-20240609145549455" style="zoom:67%;" />
+
+个人页面
+
+<img src="https://hejiajun-img-bucket.oss-cn-wuhan-lr.aliyuncs.com/img/20240609143327.png" alt="image-20240609143327588" style="zoom: 67%;" />
+
+
+
+<img src="https://hejiajun-img-bucket.oss-cn-wuhan-lr.aliyuncs.com/img/20240609143357.png" alt="image-20240609143357705" style="zoom:67%;" />
+
+
 
 ## 项目亮点
 
-1. 用户登录：使用 Redis 实现分布式 Session，解决集群间登录态同步问题；并使用 Hash 代替 String 来存储用户信息，节约了 5%
-   的内存并便于单字段的修改。
-2. 对于项目中复杂的集合处理（比如为队伍列表关联已加入队伍的用户），使用 Java 8 Stream API 和 Lambda 表达式来简化编码。
-3. 使用 Easy Excel 读取收集来的基础用户信息，并通过自定义线程池 + CompletableFuture 并发编程提高批量导入数据库的性能。实测导入
-   100 万行的时间从 20秒缩短至 7秒。（需要自己实际测试对比数据）
-4. 使用 Redis 缓存首页高频访问的用户信息列表，将接口响应时长从 800ms缩短至 120ms 。且通过自定义 Redis 序列化器来解决数据乱码、空间浪费的问题。
-5. 为解决首次访问系统的用户主页加载过慢的问题，使用 Spring Scheduler 定时任务来实现缓存预热，并通过分布式锁保证多机部署时定时任务不会重复执行。
-6. 为解决同一用户重复加入队伍、入队人数超限的问题，使用 Redisson 分布式锁来实现操作互斥，保证了接口幂等性。
-7. 使用 Knife4j + Swagger 自动生成后端接口文档，并通过编写 ApiOperation 等注解补充接口注释，避免了人工编写维护文档的麻烦。
-8. 前端使用 Vant UI 组件库，并封装了全局通用的 Layout 组件，使主页、搜索页、组队页布局一致、并减少重复代码。
-9. 基于 Vue Router 全局路由守卫实现了根据不同页面来动态切换导航栏标题， 并通过在全局路由配置文件扩展 title 字段来减少无意义的
-   if else 代码。
-10. 使用WebSocket实现聊天功能,实时进行交流
+1. 基于 Spring AOP + Axios 实现前端登录拦截
+2. 基于 Redis 实现分布式 Session 存储
+3. 使用 Redis List 结构配合 Vue-infinite-loading 组件实现滑动加载
+4. Spring Scheduling + Redis 分布式锁实现缓存预热
+5. 了解编辑距离算法，可用于匹配相似字符串，单词校验
+6. 基于 Redis GEO 存储用户地理微信信息，实现搜索附近用户
+7. 基于 Redis 分布式锁防止用户重复入队
+8. 通过 Guava 库实现重试机制，保证缓存数据一致性
+9. 基于 Websocket 实现用户间私聊
+10. 集成第三方库生成接口测试文档，方便测试项目接口
+11. 熟悉 EasyExcel 的使用
+12. 基于 Axios 封装请求实例，方便请求后端接口
+13. 熟悉 Vant 组件库的使用
+14. 熟悉 Vue3 setup 语法
+15. 掌握 Vue-Router 基本使用
 
-## 快速启动
 
-### 后端
 
-1. 运行 sql 目录下的 create_table.sql 建表
-2. 修改 application.yml 中的数据库地址为自己的
-3. 安装完 Maven 依赖后，直接运行即可
+## 数据库表
 
-### 前端
+> 如果大家拉取了后端源码，直接找到 sql/create_sql.sql 文件直接运行即可创建相应数据库和表结构
 
-安装依赖：
+### 用户表
 
-```bash
-npm run install
+```sql
+/*用户表*/
+create table hjj.user
+(
+    id           bigint auto_increment comment 'id'
+        primary key,
+    username     varchar(256)                       null comment '用户昵称',
+    userAccount  varchar(256)                       null comment '账户',
+    avatarUrl    varchar(1024)                      null comment '用户头像' default 'https://www.keaitupian.cn/cjpic/frombd/0/253/936677050/470164789.jpg',
+    gender       tinyint                            null comment '用户性别',
+    profile      varchar(512)                       null comment '个人简介',
+    userPassword varchar(512)                       not null comment '用户密码',
+    phone        varchar(128)                       null comment '电话',
+    email        varchar(512)                       null comment '邮箱',
+    userStatus   int      default 0                 not null comment '状态 0 - 正常',
+    createTime   datetime default CURRENT_TIMESTAMP null comment '创建时间',
+    updateTime   datetime default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    isDelete     tinyint  default 0                 not null comment '是否删除',
+    userRole     int      default 0                 not null comment '用户角色 0 - 普通用户 1 - 管理员',
+    planetCode   varchar(512)                       null comment '星球编号',
+    tags         varchar(1024)                      null comment '标签列表(json)',
+    longitude    decimal(10, 6)                     null comment '经度',
+    dimension    decimal(10, 6)                     null comment '纬度'
+)
+    comment '用户';
 ```
 
-运行：
 
-```bash
-npm run dev
+
+### 队伍表
+
+```sql
+/*队伍表*/
+create table if not exists hjj.team
+(
+    id           bigint auto_increment comment 'id'
+        primary key,
+    teamName   		varchar(256)                        not null comment '队伍名称',
+    description 	varchar(1024)                       null comment ' 描述',
+    maxNum        	int    default 1              		null comment '最大人数',
+    expireTime      datetime							null comment '过期时间',
+    userId 			bigint                              not null comment '队伍创建者/队长id',
+    status         	tinyint default 0 		        	null comment '队伍状态 - 0 - 公开， 1 - 私有，2 - 加密
+- ',
+    password        varchar(512)                       null comment '队伍密码',
+    createTime   	datetime default CURRENT_TIMESTAMP null comment '创建时间',
+    updateTime   	datetime default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    isDelete     	tinyint  default 0                 not null comment '是否删除'
+)
+    comment '队伍信息';
 ```
 
-打包：
 
-```bash
-npm run build
+
+### 用户关系表
+
+```sql
+/*用户队伍关系*/
+create table if not exists hjj.user_team
+(
+    id           bigint auto_increment comment 'id'
+        primary key,
+    userId 			bigint                             	comment '用户id',
+    teamId 			bigint                             	comment '队伍id',
+    joinTime   	datetime 							    comment '加入时间',
+    createTime   	datetime default CURRENT_TIMESTAMP null comment '创建时间',
+    updateTime   	datetime default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    isDelete     	tinyint  default 0                 not null comment '是否删除'
+)
+    comment '用户队伍关系表';
 ```
+
+
+
+### 好友表
+
+```sql
+/*好友表*/
+create table hjj.friend
+(
+    id         bigint auto_increment comment 'id'
+        primary key,
+    userId     bigint                             not null comment '用户id（即自己id）',
+    friendId   bigint                             not null comment '好友id',
+    createTime datetime default CURRENT_TIMESTAMP null comment '创建时间',
+    updateTime datetime default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
+    isDelete   tinyint  default 0                 not null comment '是否删除'
+)
+    comment '好友表';
+```
+
+
+
+### 聊天表
+
+```sql
+/*聊天表*/
+CREATE TABLE `chat`  (
+                         `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '聊天记录id',
+                         `fromId` bigint(20) NOT NULL COMMENT '发送消息id',
+                         `toId` bigint(20) NULL DEFAULT NULL COMMENT '接收消息id',
+                         `text` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+                         `chatType` tinyint(4) NOT NULL COMMENT '聊天类型 1-私聊 2-群聊',
+                         `createTime` datetime NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                         `updateTime` datetime NULL DEFAULT CURRENT_TIMESTAMP,
+                         `teamId` bigint(20) NULL DEFAULT NULL,
+                         `isDelete` tinyint(4) NULL DEFAULT 0,
+                         PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '聊天消息表' ROW_FORMAT = COMPACT;
+```
+
+
 

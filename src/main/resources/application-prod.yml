@@ -1,0 +1,52 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: homieMatching
+  datasource:
+    url: jdbc:mysql://182.92.76.127:3369/hjj
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: hjj
+    password: 123456
+  session:
+    timeout: 86400
+    store-type: none
+
+  redis:
+    port: 6379
+    host: 182.92.76.127
+    database: 1
+    password: 123456
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+    session:
+      cookie:
+        domain: caicaidog.xyz
+        same-site: lax
+        secure: false
+        max-age: 864000
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+#oss:
+#  accessKeyId:
+#  accessKeySecret:
+#  folderName:
+#  endpoint:
+#  bucketName:
+cos:
+  client:
+    host: https://picture-1350018554.cos.ap-guangzhou.myqcloud.com
+    secretId: AKIDoKdgT0HI4cvzwf8LIzReaGgpmTt3wZx7
+    secretKey: yjGYaNvENHwNZWDfsrZ6OPCjzzjCRRCh
+    region: ap-guangzhou
+    bucket: picture-1350018554

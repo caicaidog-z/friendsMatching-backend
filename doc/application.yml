@@ -1,0 +1,42 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: homieMatching
+  datasource:
+    url: jdbc:mysql://localhost:3306/hjj
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 12345678
+  session:
+    timeout: 86400
+    store-type: redis
+  redis:
+    port: 6379
+    host: localhost
+    database: 0
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+    session:
+      cookie:
+        domain: localhost
+        same-site: none
+        secure: true
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+oss:
+  accessKeyId:
+  accessKeySecret:
+  folderName:
+  endpoint:
+  bucketName:

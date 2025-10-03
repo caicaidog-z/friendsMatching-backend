@@ -1,46 +1,33 @@
 spring:
-  # 默认环境
-  profiles:
-    active: dev
   mvc:
-    path match:
+    pathmatch:
       matching-strategy: ant_path_matcher
-    format:
-      date-time: yyyy-MM-dd HH:mm:ss
+  application:
+    name: homieMatching
   datasource:
+    url: jdbc:mysql://localhost:3306/hjj
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/jujiao_yuan
     username: root
     password: 123456
-    type: com.alibaba.druid.pool.DruidDataSource
-    druid:
-      # 初始化时建立物理连接的个数
-      initial-size: 5
-      # 连接池的最小空闲数量
-      min-idle: 5
-      # 连接池最大连接数量
-      max-active: 20
-      # 获取连接时最大等待时间，单位毫秒
-      max-wait: 60000
   session:
-    timeout: 2592000
+    timeout: 86400
     store-type: redis
   redis:
-    database: 1
-    host: localhost
     port: 6379
-    timeout: 5000
-  jackson:
-    date-format: yyyy年MM月dd日 HH:mm:ss
-    timeZone: Asia/Shanghai
+    host: localhost
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
 server:
   port: 8080
-  address: 0.0.0.0
   servlet:
     context-path: /api
     session:
       cookie:
-        max-age: 2592000
+        domain: localhost
+        same-site: none
+        secure: true
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
@@ -50,14 +37,13 @@ mybatis-plus:
       logic-delete-field: isDelete
       logic-delete-value: 1
       logic-not-delete-value: 0
+#oss:
+#  accessKeyId:
+#  accessKeySecret:
+#  folderName:
+#  endpoint:
+#  bucketName:
 
-#  腾讯云cos配置
-#cos:
-#  client:
-#    accessKey: XXX
-#    secretKey: xxx
-#    region: xxx
-#    bucket: xxx
 cos:
   client:
     host: https://picture-1350018554.cos.ap-guangzhou.myqcloud.com
@@ -66,18 +52,5 @@ cos:
     region: ap-guangzhou
     bucket: picture-1350018554
 
-# 第三方登录配置 申请地址 https://uniqueker.top/
-#third:
-#  config:
-#    appId: xxxx
-#    appKey: xxxx
-#    redirectUrl: xxxx
-
-
-
-
-
-
-
-
-
+aliyun:
+  apiKey: sk-354a8025b45f4a4e93c413107dd6c7b8

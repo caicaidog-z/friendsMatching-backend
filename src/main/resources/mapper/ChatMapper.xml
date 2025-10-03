@@ -2,22 +2,67 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qimu.jujiao.mapper.ChatMapper">
+<mapper namespace="com.hjj.homieMatching.mapper.ChatMapper">
 
-    <resultMap id="BaseResultMap" type="com.qimu.jujiao.model.entity.Chat">
-        <id property="id" column="id" jdbcType="BIGINT"/>
-        <result property="fromId" column="fromId" jdbcType="BIGINT"/>
-        <result property="teamId" column="teamId" jdbcType="BIGINT"/>
-        <result property="toId" column="toId" jdbcType="BIGINT"/>
-        <result property="text" column="text" jdbcType="VARCHAR"/>
-        <result property="chatType" column="chatType" jdbcType="TINYINT"/>
-        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
-        <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+    <resultMap id="BaseResultMap" type="com.hjj.homieMatching.model.domain.Chat">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="fromId" column="fromId" jdbcType="BIGINT"/>
+            <result property="toId" column="toId" jdbcType="BIGINT"/>
+            <result property="text" column="text" jdbcType="VARCHAR"/>
+            <result property="chatType" column="chatType" jdbcType="TINYINT"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="teamId" column="teamId" jdbcType="BIGINT"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,fromId,toId,teamId,
+        id,fromId,toId,
         text,chatType,createTime,
-        updateTime
+        updateTime,teamId,isDelete
     </sql>
+
+    <select id="getLastPrivateChatMessages" resultType="com.hjj.homieMatching.model.domain.Chat">
+        SELECT c.*
+        FROM hjj.chat c
+        JOIN (
+        SELECT MAX(id) AS max_id
+        FROM hjj.chat
+        WHERE isDelete = 0
+        AND (fromId = #{userId} OR toId = #{userId})
+        AND toId IN
+        <foreach item="friendId" collection="friendIdList" open="(" separator="," close=")">
+            #{friendId}
+        </foreach>
+        GROUP BY toId
+        ) AS max_ids ON c.id = max_ids.max_id AND (c.fromId = #{userId} OR c.toId = #{userId})
+        order by createTime desc;
+    </select>
+
+    <select id="listLastPrivateChatMessage" resultType="com.hjj.homieMatching.model.domain.Chat">
+        SELECT
+            c.id AS id,  -- 聊天记录的唯一标识
+            c.fromId AS fromId,  -- 发送消息的用户 ID
+            c.toId AS toId,  -- 接收消息的用户 ID
+            c.text AS text,  -- 聊天内容
+            c.chatType AS chatType,  -- 聊天类型
+            c.createTime AS createTime,  -- 创建时间
+            c.updateTime AS updateTime,  -- 更新时间
+            c.teamId AS teamId,  -- 队伍 ID
+            c.isDelete AS isDelete  -- 逻辑删除标志
+        FROM
+            hjj.friend f
+                JOIN
+            hjj.chat c
+            ON
+                (c.fromId = f.userId AND c.toId = f.friendId) OR
+                (c.fromId = f.friendId AND c.toId = f.userId)
+        WHERE
+            f.userId = #{userId}  -- 当前用户的 userId
+          AND c.chatType = 1  -- 私聊类型
+          AND c.isDelete = 0  -- 未删除的聊天记录
+        ORDER BY
+            c.createTime DESC;
+    </select>
+
 </mapper>
