@@ -2,8 +2,6 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-  application:
-    name: homieMatching
   datasource:
     url: jdbc:mysql://localhost:3306/hjj
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -37,20 +35,15 @@ mybatis-plus:
       logic-delete-field: isDelete
       logic-delete-value: 1
       logic-not-delete-value: 0
-#oss:
-#  accessKeyId:
-#  accessKeySecret:
-#  folderName:
-#  endpoint:
-#  bucketName:
-
-cos:
-  client:
-    host: https://picture-1350018554.cos.ap-guangzhou.myqcloud.com
-    secretId: AKIDoKdgT0HI4cvzwf8LIzReaGgpmTt3wZx7
-    secretKey: yjGYaNvENHwNZWDfsrZ6OPCjzzjCRRCh
-    region: ap-guangzhou
-    bucket: picture-1350018554
-
-aliyun:
-  apiKey: sk-354a8025b45f4a4e93c413107dd6c7b8
+#todo 修改
+#cos:
+#  client:
+#    host:
+#    secretId:
+#    secretKey:
+#    region:
+#    bucket:
+#
+#todo 修改
+#aliyun:
+#  apiKey:

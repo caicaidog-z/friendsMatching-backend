@@ -2,29 +2,28 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-  application:
-    name: homieMatching
+#todo 修改
   datasource:
-    url: jdbc:mysql://182.92.76.127:3369/hjj
+    url:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: hjj
-    password: 123456
+    username:
+    password:
   session:
     timeout: 86400
     store-type: none
-
+#todo 修改
   redis:
-    port: 6379
-    host: 182.92.76.127
-    database: 1
-    password: 123456
+    port:
+    host:
+    database:
+    password:
 server:
   port: 8080
   servlet:
     context-path: /api
     session:
       cookie:
-        domain: caicaidog.xyz
+        domain:
         same-site: lax
         secure: false
         max-age: 864000
@@ -43,10 +42,11 @@ mybatis-plus:
 #  folderName:
 #  endpoint:
 #  bucketName:
-cos:
-  client:
-    host: https://picture-1350018554.cos.ap-guangzhou.myqcloud.com
-    secretId: AKIDoKdgT0HI4cvzwf8LIzReaGgpmTt3wZx7
-    secretKey: yjGYaNvENHwNZWDfsrZ6OPCjzzjCRRCh
-    region: ap-guangzhou
-    bucket: picture-1350018554
+#todo 需要修改
+#cos:
+#  client:
+#    host:
+#    secretId:
+#    secretKey:
+#    region:
+#    bucket:
